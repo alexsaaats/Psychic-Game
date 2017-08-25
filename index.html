@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <title>~Alex's Psychic Game~</title>
   <!-- my stylesheet -->
-  <link rel="stylesheet" type="text/css" href="/Assets/CSS/style.css">
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
   <!-- themed bootstrap sheet --> 
   <link rel="stylesheet" type="text/css" href="https://bootswatch.com/solar/bootstrap.min.css">
+  <!-- adding in jquery --> 
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <!-- my js game file -->
+  <script src="Assets/javascript/game.js"></script>
 </head>
 
-<body>
 
+<body>
 <!-- Header section with jumbotron and nav bar, where nav is for gameplay -->
 <div id="header-section">
 	<div class="jumbotron">
@@ -20,17 +24,35 @@
 	</div>
 
 	<nav class="navbar text-center">
-		<button class="navbar" type="button">Run It</button>
-    	<button class="navbar" type="button">Reset It</button>
+		<button class="navbar" type="button" id="getfunky">Get Funky</button>
+    	<button class="navbar" type="button" id="reset">Reset It</button>
 	</nav>
 </div>
 
 <!-- main div containing the game page elements --> 
 <div id="game-section">
 
-<div class="container center-me">
+<!-- first row full width showing the guesses you have made --> 
+<div class="container">
 	<div class="row">
 	    <div class="col">
+	    	<div class="panel panel-default">
+          		<div class="panel-heading">
+            	<h3 class="panel-title">Your Guesses</h3>
+          		</div>
+          		<div class="panel-body">
+            	<div class="text-center">All the choices that have failed:</div>
+            	<div class="text-center" id="wins">0</div>
+            	</div>
+            </div>
+	    </div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
 	    	<div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Wins</h3>
@@ -42,7 +64,7 @@
             </div>
 	    </div>
 
-	    <div class="col">
+	    <div class="col-sm">
 	        <div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Losses</h3>
@@ -54,7 +76,7 @@
             </div>
 	    </div>
 
-	    <div class="col">
+	    <div class="col-sm">
 	      	<div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Guesses</h3>
@@ -67,22 +89,8 @@
 	    </div>
     </div>
 </div>
+
 </div>
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 2
-    </div>
-    <div class="col">
-      1 of 2
-    </div>
-  </div>
-</div>
-
-
 
 </body>
 </html>
