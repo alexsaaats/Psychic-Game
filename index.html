@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>~Alex's Psychic Game~</title>
-  <!-- my stylesheet -->
-  <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+  <!-- current version of bootstrap --> 
+  <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css” integrity=“sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ” crossorigin=“anonymous”>
   <!-- themed bootstrap sheet --> 
   <link rel="stylesheet" type="text/css" href="https://bootswatch.com/solar/bootstrap.min.css">
+  <!-- my stylesheet -->
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
   <!-- adding in jquery --> 
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   <!-- my js game file -->
@@ -19,11 +21,13 @@
 <!-- Header section with jumbotron and nav bar, where nav is for gameplay -->
 <div id="header-section">
 	<div class="jumbotron">
-		<h1 class="text-center"><strong>Psychic Game</strong></h1>
+		<h1 class="text-center" id="pagetitle"><strong>Psychic Game</strong></h1>
 		<h3 class="text-center">Guess again young buck</h3>
+    <h5 class="text-center">Press any key and see if you can guess what letter I'm thinking</h5>
 	</div>
 
 	<nav class="navbar text-center">
+		<button class="navbar" type="button" id="how">How it Works</button>
 		<button class="navbar" type="button" id="getfunky">Get Funky</button>
     	<button class="navbar" type="button" id="reset">Reset It</button>
 	</nav>
@@ -52,7 +56,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm">
+		<div class="col-sm-4">
 	    	<div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Wins</h3>
@@ -64,7 +68,7 @@
             </div>
 	    </div>
 
-	    <div class="col-sm">
+	    <div class="col-sm-4">
 	        <div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Losses</h3>
@@ -76,7 +80,7 @@
             </div>
 	    </div>
 
-	    <div class="col-sm">
+	    <div class="col-sm-4">
 	      	<div class="panel panel-default">
           		<div class="panel-heading">
             	<h3 class="panel-title">Guesses</h3>
@@ -90,6 +94,10 @@
     </div>
 </div>
 
+</div>
+
+<div class="container-footer">
+<div class="footera">Welcome to the jungle.</div>
 </div>
 
 </body>
