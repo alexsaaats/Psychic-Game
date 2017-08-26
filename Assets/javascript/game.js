@@ -14,53 +14,62 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var wins = 0;
 var losses = 0;
 var guesses = 0;
-// var computerchoice = '';
+var computerchoice = '';
 var userchoice = '';
 var userchoices = [];
 
 
 //Tell the computer to make a choice secretly to start the game
 var computerchoice = letters[Math.floor(Math.random() * letters.length)];
-console.log(computerchoice)
+console.log("computer choice:" + computerchoice)
 
-//Tell the system to count any keystroke from the user as a Guess and log the the guess
+//Tell the system to count any keystroke from the user as a Guess
 document.addEventListener("keyup", function() {
 	var userchoice = String.fromCharCode(event.keyCode).toLowerCase();
+	//log the choice for debug
 	console.log(userchoice);
+	//push each choice into the choices array
 	userchoices.push(userchoice);
+	//log the choices count for debug
+	console.log("Here is the userchoices:" + userchoices);
+	//write the choices count to the view
+	$("#choices").text(userchoices);
+	//Count the guesses and show them in the view
+	var guesses = userchoices.length;
+	$("#guesses-div").text(guesses);
+	//log the guess count for debug
+	console.log("these are the guesses:" + guesses);
+	//Tell the system to identify a win and reset the game but keep the win
+		if (userchoice === computerchoice) {
+			window.alert("You Win!");
+			$("#wins-div").text(wins + 1);
+			$("#losses-div").text("0")
+			$("#choices").text("You won. Let's try again.")
+			$("#guesses-div").text("0")		
+			
+		}
+
+	//Tell the system to identify a loss and reset the game, but keep losses count
+		if (userchoices.length > 8) {
+			window.alert("You lose you loser!");
+			$("#losses-div").text(losses + 1)
+			$("#choices").text("You lose. Start over you loser.")
+			$("#guesses-div").text("0")		
+			
+		}
 });
 
-
-
-// var userchoice= $(document).keyup(function() {
-//	var userchoice = String.fromCharCode(event.keyCode).toLowerCase();
-//	console.log(userchoice);
-//	userchoices.push(userchoice);
-//});
-
-//Count the guesses the user has made
-var guesses = userchoices.length;
-
-
-//Tell the system to identify a win and reset the guesses
-if (userchoice === computerchoice) {
-	wins + 1;
-}
-
-//Tell the system to identify a loss and reset the guesses
-if (userchoices.length > 8) {
-	losses + 1;
-	window.alert("You lose. Try again! If you don't like watching your losses grow, you can click Reset It to start all over.");
-}
 
 //Tell the reset button to completely clear the game and start over
 $("#reset").on("click", function() {
 	window.alert("You have cleared the game and are ready to start over! Good luck!");
 	$("#pagetitle").text("Psychic Game");
-	$("#wins").text("0");
-
-
+	$("#wins-div").text("0");
+	$("#losses-div").text("0")
+	$("#choices").text("I'm reset and ready")
+	$("#guesses-div").text("0")
 	});
+
 
 //Tell the GetFunky button to be some easter egg
 $("#getfunky").on("click", function() {
